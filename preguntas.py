@@ -57,7 +57,7 @@ def pregunta_03():
     ]
 
     """
-    return
+    return 5
 
 
 def pregunta_04():
