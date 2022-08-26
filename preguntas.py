@@ -82,7 +82,7 @@ def pregunta_04():
     ]
 
     """
-    return
+    return 11111111
 
 
 def pregunta_05():
