@@ -21,7 +21,7 @@ def pregunta_01():
     214
 
     """
-    return
+    return  2
 
 
 def pregunta_02():
@@ -39,7 +39,7 @@ def pregunta_02():
     ]
 
     """
-    return
+    return  3
 
 
 def pregunta_03():
@@ -57,7 +57,7 @@ def pregunta_03():
     ]
 
     """
-    return
+    return 5
 
 
 def pregunta_04():
