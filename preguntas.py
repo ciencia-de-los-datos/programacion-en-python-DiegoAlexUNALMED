@@ -21,7 +21,16 @@ def pregunta_01():
     214
 
     """
-    return  2
+    
+    archivo = open('data.csv')
+
+    archivo = archivo.readlines()
+
+    elementosC2 = [int(archivo[i][2]) for i in range(len(archivo))]
+
+    sumatoria = sum(elementosC2)
+
+    return  sumatoria
 
 
 def pregunta_02():
