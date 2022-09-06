@@ -48,7 +48,17 @@ def pregunta_02():
     ]
 
     """
-    return  3
+    
+    archivo = open('data.csv')
+
+    archivo = archivo.readlines()
+
+    elementos = [archivo[i][0] for i in range(len(archivo))]
+
+    respuesta = [(elementos[i],elementos.count(elementos[i])) for i in range(len(elementos))]
+
+    respuesta = sorted(set(respuesta))
+    return  respuesta
 
 
 def pregunta_03():
