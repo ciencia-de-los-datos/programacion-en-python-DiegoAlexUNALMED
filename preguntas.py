@@ -144,7 +144,7 @@ def pregunta_05():
 
     """
     
-    archivo = open('data.csv)
+    archivo = open('data.csv')
 
     archivo = archivo.readlines()
 
