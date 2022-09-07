@@ -143,7 +143,24 @@ def pregunta_05():
     ]
 
     """
-    return
+    
+    archivo = open(ruta)
+
+    archivo = archivo.readlines()
+
+    elementos = sorted(set([archivo[i][0] for i in range(len(archivo))]))
+
+    for i in range(len(elementos)):
+        menor = 100000
+        mayor = 0
+        for j in range(len(archivo)):
+            if(archivo[j][0] == elementos[i]):
+                if(int(archivo[j][2]) < menor):
+                    menor = int(archivo[j][2])
+                elif (int(archivo[j][2]) > mayor):
+                    mayor = int(archivo[j][2])
+        elementos[i] = (elementos[i],mayor,menor)
+    return elementos
 
 
 def pregunta_06():
