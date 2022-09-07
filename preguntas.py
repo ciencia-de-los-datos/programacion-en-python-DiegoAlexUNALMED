@@ -114,7 +114,18 @@ def pregunta_04():
     ]
 
     """
-    return 11111111
+    
+    archivo = open('data.csv')
+
+    archivo = archivo.readlines()
+
+    elementos = [archivo[i][9:11] for i in range(len(archivo))]
+
+    respuesta = [(elementos[i],elementos.count(elementos[i])) for i in range(len(elementos))]
+
+    respuesta = sorted(set(respuesta))
+    
+    return respuesta
 
 
 def pregunta_05():
