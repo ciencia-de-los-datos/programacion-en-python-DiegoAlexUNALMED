@@ -76,7 +76,20 @@ def pregunta_03():
     ]
 
     """
-    return 5
+    
+    archivo = open("data.csv")
+
+    archivo = archivo.readlines()
+
+    elementos = sorted(set([archivo[i][0] for i in range(len(archivo))]))
+
+    for i in range(len(elementos)):
+        sumatoria = 0
+        for j in range(len(archivo)):
+            if(archivo[j][0] == elementos[i]):
+                sumatoria += int(archivo[j][2])
+        elementos[i] = (elementos[i],sumatoria)
+    return elementos
 
 
 def pregunta_04():
