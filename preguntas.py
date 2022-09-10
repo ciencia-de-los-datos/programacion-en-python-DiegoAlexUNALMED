@@ -334,7 +334,19 @@ def pregunta_09():
     }
 
     """
-    return
+    archivo = open('data.csv')
+    archivo = archivo.readlines()
+
+    elementos = [str(archivo[i]).split("\n")[0:-1] for i in range(len(archivo))][:-1]   #Partición por saltos de línea
+    elementos = list(map(lambda x: x[0], elementos))                                    #En cada posición de la lista grande queda el texto y no la lista
+    elementos = list(map(lambda x: x.split("\t")[4],elementos))                         #Extrae únicamente elementos del diccionario
+    elementos = list(map(lambda x: x.split(","),elementos))                             #El texto de diccionario lo parte por comas
+    elementos = [elementos[i][j] for i in (range(len(elementos))) for j in (range(len(elementos[i])))]
+    elementos = list(map(lambda x: x.split(":"),elementos))
+    elementos = list(map(lambda x: x[0],elementos))
+    elementosSD = sorted(list(set(elementos)))
+    elementosSD = dict([(elementosSD[i],elementos.count(elementosSD[i])) for i in range(len(elementosSD))])
+    return elementosSD
 
 
 def pregunta_10():
