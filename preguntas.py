@@ -190,12 +190,13 @@ def pregunta_06():
 
     archivo = archivo.readlines()
 
-    elementos = [str(archivo[i]).split("\n")[0:-1] for i in range(len(archivo))][:-1]
-    elementos = list(map(lambda x: x[0], elementos))
-    elementos = list(map(lambda x: x.split("\t")[4],elementos))
-    elementos = list(map(lambda x: x.split(","),elementos))
-    elementos = [elementos[i][j] for i in (range(len(elementos))) for j in (range(3))]
+    elementos = [str(archivo[i]).split("\n")[0:-1] for i in range(len(archivo))][:-1]   #Partición por saltos de línea
+    elementos = list(map(lambda x: x[0], elementos))                                    #En cada posición de la lista grande queda el texto y no la lista
+    elementos = list(map(lambda x: x.split("\t")[4],elementos))                         #Extrae únicamente elementos del diccionario
+    elementos = list(map(lambda x: x.split(","),elementos))                             #El texto de diccionario lo parte por comas
+    elementos = [elementos[i][j] for i in (range(len(elementos))) for j in (range(len(elementos[i])))]
     elementos = list(map(lambda x: x.split(":"),elementos))
+
     elementosSD = []
 
     for i in range(len(elementos)):
@@ -213,6 +214,7 @@ def pregunta_06():
                 elif(maximo < int(elementos[j][1])):
                     maximo = int(elementos[j][1])
         elementosSD[i] = (elementosSD[i],minimo,maximo)
+
     return elementosSD
 
 
