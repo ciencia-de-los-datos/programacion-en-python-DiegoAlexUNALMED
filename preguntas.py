@@ -255,11 +255,11 @@ def pregunta_07():
     elementosSD = sorted(list(set(elementosSD)))                                        #Elimina duplicados y ordena las claves
 
     for i in range(len(elementosSD)):
-    lista = []
-    for j in range(len(elementos)):
-        if(elementos[j][1]==elementosSD[i]):
-            lista.append(elementos[j][0])
-    elementosSD[i] = (elementosSD[i],lista)
+        lista = []
+        for j in range(len(elementos)):
+            if(elementos[j][1]==elementosSD[i]):
+                lista.append(elementos[j][0])
+        elementosSD[i] = (elementosSD[i],lista)
   
     return elementosSD
 
