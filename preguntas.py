@@ -211,7 +211,7 @@ def pregunta_06():
             if(elementos[j][0]==elementosSD[i]):
                 if(minimo > int(elementos[j][1])):
                     minimo = int(elementos[j][1])
-                elif(maximo < int(elementos[j][1])):
+                if(maximo < int(elementos[j][1])):
                     maximo = int(elementos[j][1])
         elementosSD[i] = (elementosSD[i],minimo,maximo)
 
