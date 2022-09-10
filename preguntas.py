@@ -430,7 +430,7 @@ def pregunta_11():
             if(elementosSD[i] in elementos[j]):
                 sumatoria += elementos[j][0]
         elementosSD[i] = (elementosSD[i],sumatoria)
-    
+    elementosSD = dict(elementosSD)
     return elementosSD
 
 
