@@ -209,7 +209,36 @@ def pregunta_07():
     ]
 
     """
-    return
+    
+    archivo = open('data.csv')
+
+    archivo = archivo.readlines()
+
+    elementos = [str(archivo[i]).split("\n")[0:-1] for i in range(len(archivo))][:-1]
+    elementos = list(map(lambda x: x[0], elementos))
+    elementos = list(map(lambda x: x.split("\t")[4],elementos))
+    elementos = list(map(lambda x: x.split(","),elementos))
+    elementos = [elementos[i][j] for i in (range(len(elementos))) for j in (range(3))]
+    elementos = list(map(lambda x: x.split(":"),elementos))
+    elementosSD = []
+
+    for i in range(len(elementos)):
+        elementosSD.append(elementos[i][0])
+
+    elementosSD = sorted(list(set(elementosSD)))
+
+    for i in range(len(elementosSD)):
+        minimo = 100000
+        maximo = 0
+        for j in range(len(elementos)):
+            if(elementos[j][0]==elementosSD[i]):
+                if(minimo > int(elementos[j][1])):
+                    minimo = int(elementos[j][1])
+                elif(maximo < int(elementos[j][1])):
+                    maximo = int(elementos[j][1])
+        elementosSD[i] = (elementosSD[i],minimo,maximo)
+    
+    return elementosSD
 
 
 def pregunta_08():
