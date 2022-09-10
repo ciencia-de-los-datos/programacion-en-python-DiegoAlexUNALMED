@@ -250,7 +250,7 @@ def pregunta_07():
     elementosSD = []
 
     for i in range(len(elementos)):                                                     #Crea lista con todas las claves
-    elementosSD.append(elementos[i][1])
+        elementosSD.append(elementos[i][1])
 
     elementosSD = sorted(list(set(elementosSD)))                                        #Elimina duplicados y ordena las claves
 
