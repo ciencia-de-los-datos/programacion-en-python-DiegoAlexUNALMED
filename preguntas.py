@@ -288,7 +288,30 @@ def pregunta_08():
     ]
 
     """
-    return
+    archivo = open('data.csv')
+    archivo = archivo.readlines()
+
+    elementos = [str(archivo[i]).split("\n") for i in range(len(archivo))][:-1]         #Partición por saltos de línea
+    elementos.append([str(archivo[-1]),''])
+
+    elementos = list(map(lambda x: x[0], elementos))                                    #En cada posición de la lista grande queda el texto y no la lista
+    elementos = list(map(lambda x: x.split("\t")[0:2],elementos))                         #Extrae únicamente elementos del diccionario
+
+    elementosSD = []
+
+    for i in range(len(elementos)):                                                     #Crea lista con todas las claves
+        elementosSD.append(int(elementos[i][1]))
+
+    elementosSD = sorted(list(set(elementosSD)))                                        #Elimina duplicados y ordena las claves
+
+    for i in range(len(elementosSD)):
+        lista = []
+        for j in range(len(elementos)):
+            if(int(elementos[j][1])==elementosSD[i]):
+                lista.append(elementos[j][0])
+        lista = sorted(list(set(lista)))
+        elementosSD[i] = (elementosSD[i],lista)
+    return elementosSD
 
 
 def pregunta_09():
