@@ -449,4 +449,30 @@ def pregunta_12():
     }
 
     """
-    return
+    archivo = open('data.csv')                                                                #Lectura
+
+    archivo = archivo.readlines()
+
+    elementos = [str(archivo[i]).split("\n")[0:-1] for i in range(len(archivo))][:-1]   #Partición por saltos de línea y limpieza
+    elementos.append([str(archivo[-1]),''])
+    elementos = list(map(lambda x: x[0], elementos))                                    #En cada posición de la lista grande queda el texto y no la lista
+    elementos = list(map(lambda x: [x.split("\t")[0],x.split("\t")[4]],elementos))      #Extrae únicamente elementos del diccionario
+    elementos = list(map(lambda x: [x[0],x[1].split(",")],elementos))
+
+    for i in range(len(elementos)):
+        fila = [elementos[i][0]]
+        for j in range(len(elementos[i][1])):
+            fila.append(int(elementos[i][1][j][elementos[i][1][j].find(":")+1:]))
+        elementos[i] = fila
+
+    elementosSD = [elementos[i][0] for i in range(len(elementos))]
+    elementosSD = sorted(list(set(elementosSD)))
+
+    for i in range(len(elementosSD)):
+        sumatoria = 0
+        for j in range(len(elementos)):
+            if(elementosSD[i] in elementos[j]):
+                sumatoria += sum(elementos[j][1:])
+        elementosSD[i] = (elementosSD[i],sumatoria)
+    
+    return elementosSD
