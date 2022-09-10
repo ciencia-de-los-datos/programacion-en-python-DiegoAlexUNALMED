@@ -185,30 +185,6 @@ def pregunta_06():
     ]
 
     """
-    return
-
-
-def pregunta_07():
-    """
-    Retorne una lista de tuplas que asocien las columnas 0 y 1. Cada tupla contiene un
-    valor posible de la columna 2 y una lista con todas las letras asociadas (columna 1)
-    a dicho valor de la columna 2.
-
-    Rta/
-    [
-        (0, ["C"]),
-        (1, ["E", "B", "E"]),
-        (2, ["A", "E"]),
-        (3, ["A", "B", "D", "E", "E", "D"]),
-        (4, ["E", "B"]),
-        (5, ["B", "C", "D", "D", "E", "E", "E"]),
-        (6, ["C", "E", "A", "B"]),
-        (7, ["A", "C", "E", "D"]),
-        (8, ["E", "D", "E", "A", "B"]),
-        (9, ["A", "B", "E", "A", "A", "C"]),
-    ]
-
-    """
     
     archivo = open('data.csv')
 
@@ -237,8 +213,34 @@ def pregunta_07():
                 elif(maximo < int(elementos[j][1])):
                     maximo = int(elementos[j][1])
         elementosSD[i] = (elementosSD[i],minimo,maximo)
-    
     return elementosSD
+
+
+def pregunta_07():
+    """
+    Retorne una lista de tuplas que asocien las columnas 0 y 1. Cada tupla contiene un
+    valor posible de la columna 2 y una lista con todas las letras asociadas (columna 1)
+    a dicho valor de la columna 2.
+
+    Rta/
+    [
+        (0, ["C"]),
+        (1, ["E", "B", "E"]),
+        (2, ["A", "E"]),
+        (3, ["A", "B", "D", "E", "E", "D"]),
+        (4, ["E", "B"]),
+        (5, ["B", "C", "D", "D", "E", "E", "E"]),
+        (6, ["C", "E", "A", "B"]),
+        (7, ["A", "C", "E", "D"]),
+        (8, ["E", "D", "E", "A", "B"]),
+        (9, ["A", "B", "E", "A", "A", "C"]),
+    ]
+
+    """
+    
+    
+    
+    return 1
 
 
 def pregunta_08():
