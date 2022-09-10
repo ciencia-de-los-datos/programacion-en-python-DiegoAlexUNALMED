@@ -338,6 +338,7 @@ def pregunta_09():
     archivo = archivo.readlines()
 
     elementos = [str(archivo[i]).split("\n")[0:-1] for i in range(len(archivo))][:-1]   #Partición por saltos de línea
+    elementos.append([str(archivo[-1]),''])
     elementos = list(map(lambda x: x[0], elementos))                                    #En cada posición de la lista grande queda el texto y no la lista
     elementos = list(map(lambda x: x.split("\t")[4],elementos))                         #Extrae únicamente elementos del diccionario
     elementos = list(map(lambda x: x.split(","),elementos))                             #El texto de diccionario lo parte por comas
