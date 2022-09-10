@@ -240,10 +240,12 @@ def pregunta_07():
 
     """
     archivo = open('data.csv')                                                                #Lectura
-
+    
     archivo = archivo.readlines()
 
-    elementos = [str(archivo[i]).split("\n")[0:-1] for i in range(len(archivo))][:-1]   #Partición por saltos de línea
+    elementos = [str(archivo[i]).split("\n") for i in range(len(archivo))][:-1]         #Partición por saltos de línea
+    elementos.append([str(archivo[-1]),''])
+
     elementos = list(map(lambda x: x[0], elementos))                                    #En cada posición de la lista grande queda el texto y no la lista
     elementos = list(map(lambda x: x.split("\t")[0:2],elementos))                         #Extrae únicamente elementos del diccionario
 
