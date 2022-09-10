@@ -239,7 +239,7 @@ def pregunta_07():
     ]
 
     """
-    archivo = open(ruta)                                                                #Lectura
+    archivo = open('data.csv')                                                                #Lectura
 
     archivo = archivo.readlines()
 
