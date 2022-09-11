@@ -474,5 +474,5 @@ def pregunta_12():
             if(elementosSD[i] in elementos[j]):
                 sumatoria += sum(elementos[j][1:])
         elementosSD[i] = (elementosSD[i],sumatoria)
-        elementosSD = dict(elementosSD)
+    elementosSD = dict(elementosSD)
     return elementosSD
